@@ -1,0 +1,16 @@
+<h1>Search for a car</h1>
+<form>
+    Make: <input type="text" name="make" placeholder="ex. Nissan"><br>
+    Model: <input type="text" name="model" placeholder="ex. Sentra"><br>
+    <input type="submit" value="Search">
+</form>
+
+<h1><%= params[:make].upcase+' '+params[:model].upcase %> in Movies</h1>
+<!--Total Count: <%= @entriesArray.count %>-->
+<% @entriesArray.each do |entry| %>
+<div class="movie">
+  <p><%= entry.title %></p>
+  <% img= entry.image=='http://www.imcdb.org/' ? 'http://via.placeholder.com/235x100/?text=No%20Image%20Available' : entry.image %>
+  <img src="<%= img %>" width="235" height="100" alt="<%= entry.title %>" title="<%= entry.title %>">
+</div>
+<% end %>
